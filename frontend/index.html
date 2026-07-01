@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Peluquería Aurora | Estilo y cuidado para tu cabello</title>
+    <meta
+      name="description"
+      content="Descubre una peluquería moderna con cortes, coloración y tratamientos personalizados."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <a href="#" class="brand">Peluquería <span>Aurora</span></a>
+          <div class="nav-links">
+            <a href="#servicios">Servicios</a>
+            <a href="#galeria">Galería</a>
+            <a href="#horario">Horario</a>
+            <a href="#contacto">Contacto</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <div class="hero-badge">Experiencia exclusiva · Reserva prioritaria</div>
+            <h1>Elegancia, precisión y resultado impecable en cada visita.</h1>
+            <p>
+              En Aurora creamos looks sofisticados con cortes modernos, coloración premium y
+              tratamientos que realzan tu belleza con una experiencia exclusiva.
+            </p>
+            <div class="hero-highlights">
+              <span class="highlight-pill">Atención personalizada</span>
+              <span class="highlight-pill">Productos premium</span>
+              <span class="highlight-pill">Ambiente exclusivo</span>
+            </div>
+            <div class="button-group">
+              <a href="#contacto" class="btn btn-primary">Reservar cita</a>
+              <a href="#servicios" class="btn btn-secondary">Ver servicios</a>
+            </div>
+          </div>
+          <div class="hero-card">
+            <div class="image-placeholder">
+              <div class="overlay-card">
+                <span>Estudio privado</span>
+                <p>Tu cita, tu tiempo, tu estilo.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="servicios">
+        <div class="container">
+          <div class="section-title">
+            <h2>Servicios de alto nivel</h2>
+            <p>Una experiencia cuidada hasta el último detalle.</p>
+          </div>
+          <div class="cards">
+            <article class="card">
+              <h3>Cortes personalizados</h3>
+              <p>Diseñamos cada corte con precisión para que realce tu esencia y personalidad.</p>
+            </article>
+            <article class="card">
+              <h3>Coloración profesional</h3>
+              <p>Reflejos, balayage y tonos sofisticados con una ejecución impecable.</p>
+            </article>
+            <article class="card">
+              <h3>Tratamientos capilares</h3>
+              <p>Hidratación, reconstrucción y cuidado premium para un cabello brillante y saludable.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="galeria">
+        <div class="container">
+          <div class="section-title">
+            <h2>Resultados que hablan por sí solos</h2>
+            <p>Looks elegantes, modernos y cuidadosamente ejecutados.</p>
+          </div>
+          <div class="gallery-grid" id="gallery-grid">
+            <article class="gallery-card">
+              <div class="gallery-image gallery-one"></div>
+              <h3>Cortes modernos</h3>
+              <p>Texturas limpias, volumen elegante y personalidad.</p>
+            </article>
+            <article class="gallery-card">
+              <div class="gallery-image gallery-two"></div>
+              <h3>Color sofisticado</h3>
+              <p>Paletas de color con profundidad, luminosidad y refinamiento.</p>
+            </article>
+            <article class="gallery-card">
+              <div class="gallery-image gallery-three"></div>
+              <h3>Estilo y cuidado</h3>
+              <p>Tratamientos que devuelven fuerza, brillo y suavidad.</p>
+            </article>
+          </div>
+          <div class="button-group" id="gallery-pagination" style="justify-content:center; margin-top:1rem;"></div>
+        </div>
+      </section>
+
+      <section id="horario">
+        <div class="container info-grid">
+          <div class="schedule-card">
+            <h3>Horario de atención</h3>
+            <ul>
+              <li>Lunes a Viernes: 9:00 - 20:00</li>
+              <li>Sábado: 9:00 - 14:00</li>
+              <li>Domingo: Cerrado</li>
+            </ul>
+          </div>
+          <form class="contact-form" id="reservation-form">
+            <h3>Reserva tu cita</h3>
+            <label>
+              Nombre
+              <input type="text" name="name" placeholder="Tu nombre" required />
+            </label>
+            <label>
+              Correo
+              <input type="email" name="email" placeholder="tu@email.com" required />
+            </label>
+            <label>
+              Fecha
+              <input type="date" name="date" required />
+            </label>
+            <label>
+              Hora
+              <input type="time" name="time" required />
+            </label>
+            <label>
+              Servicio
+              <select name="service" required>
+                <option value="">Elige el servicio que deseas</option>
+                <option value="Corte personalizado">Corte personalizado</option>
+                <option value="Coloración profesional">Coloración profesional</option>
+                <option value="Tratamiento capilar">Tratamiento capilar</option>
+              </select>
+            </label>
+            <button type="submit" class="btn btn-primary">Reservar cita</button>
+            <p class="form-message" id="form-message"></p>
+          </form>
+        </div>
+      </section>
+
+      <section id="sobre-nosotros">
+        <div class="container about">
+          <div class="about-box">
+            <div class="section-title" style="text-align: left; margin-bottom: 0.75rem;">
+              <h2>Un espacio pensado para tu estilo</h2>
+            </div>
+            <p>
+              En Aurora combinamos técnica, creatividad y una atención cercana para que cada visita
+              sea una experiencia relajante y memorable.
+            </p>
+            <ul class="about-list">
+              <li>Profesionales con experiencia y formación constante.</li>
+              <li>Productos de calidad para cuidar tu cabello.</li>
+              <li>Ambiente acogedor y moderno.</li>
+            </ul>
+          </div>
+          <div class="about-box">
+            <div class="section-title" style="text-align: left; margin-bottom: 0.75rem;">
+              <h2>Por qué nos eligen</h2>
+            </div>
+            <p>
+              Nos encanta escuchar tus ideas y convertirlas en un resultado que te haga sentir
+              segura, cómoda y con estilo.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto">
+        <div class="container">
+          <div class="contact-banner">
+            <h2>¿Listo para transformar tu look?</h2>
+            <p style="margin: 0.5rem 0 1rem;">Reserva tu cita y vive una experiencia premium hecha para destacar.</p>
+            <a href="https://wa.me/19143300160?text=Hola,%20quiero%20agendar%20una%20cita%20y%20recibir%20m%C3%A1s%20informaci%C3%B3n." class="btn btn-secondary" style="background: white; color: var(--primary-dark);">Agendar cita</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <p>© <span data-year></span> Peluquería Aurora. Todos los derechos reservados.</p>
+          <a
+            class="footer-link"
+            href="https://www.google.com/maps/search/?api=1&query=Peluquería+Aurora"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Av. Principal 123, Ciudad · Ver en Google Maps
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

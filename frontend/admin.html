@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel de administración | Peluquería Aurora</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        padding: 2rem;
+        background: #fffaf7;
+        font-family: Arial, sans-serif;
+      }
+
+      .panel {
+        max-width: 1100px;
+        margin: 0 auto;
+        background: white;
+        padding: 2rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      h1, h2 {
+        margin-bottom: 1rem;
+      }
+
+      .card {
+        margin-bottom: 1.5rem;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th, td {
+        padding: 0.75rem;
+        border-bottom: 1px solid #eee;
+        text-align: left;
+      }
+
+      th {
+        background: #f8e7dc;
+      }
+
+      .file-upload {
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+        margin-top: 0.35rem;
+      }
+
+      .file-upload input {
+        display: none;
+      }
+
+      .file-upload-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        padding: 0.65rem 0.95rem;
+        border-radius: 999px;
+        background: #b96b4f;
+        color: white;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .file-upload-name {
+        font-size: 0.92rem;
+        color: #7a726d;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="panel">
+      <h1>Panel de administración</h1>
+      <p>Gestiona mensajes, clientes y citas desde aquí.</p>
+
+      {% if db_error %}
+      <div class="card" style="border: 1px solid #f4c7c7; background: #fff6f6; padding: 1rem; border-radius: 12px;">
+        <strong>⚠️ No se pudo conectar a PostgreSQL.</strong>
+        <p>{{ db_error }}</p>
+      </div>
+      {% endif %}
+
+      {% if message %}
+      <div class="card" style="border: 1px solid #e4f0df; background: #f7fff3; padding: 1rem; border-radius: 12px;">
+        <strong>✅ {{ message }}</strong>
+      </div>
+      {% endif %}
+
+      <div class="card">
+        <h2>Mensajes de contacto</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Mensaje</th>
+              <th>Fecha</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for message in messages %}
+            <tr>
+              <td>{{ message[0] }}</td>
+              <td>{{ message[1] }}</td>
+              <td>{{ message[2] }}</td>
+              <td>{{ message[3] }}</td>
+              <td>{{ message[5] }}</td>
+            </tr>
+            {% else %}
+            <tr>
+              <td colspan="5">No hay mensajes aún.</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>Subir foto a la galería</h2>
+        <form action="/admin/gallery" method="post" enctype="multipart/form-data">
+          <label style="display:block; margin-bottom:0.75rem;">
+            Título de la foto
+            <input type="text" name="title" required style="display:block; width:100%; padding:0.7rem; margin-top:0.35rem; border:1px solid #ddd; border-radius:10px;" />
+          </label>
+          <label style="display:block; margin-bottom:0.75rem;">
+            Descripción
+            <textarea name="description" rows="3" style="display:block; width:100%; padding:0.7rem; margin-top:0.35rem; border:1px solid #ddd; border-radius:10px;"></textarea>
+          </label>
+          <label style="display:block; margin-bottom:0.75rem;">
+            Imagen
+            <div class="file-upload">
+              <label class="file-upload-btn" for="upload-image">Seleccionar archivo</label>
+              <input id="upload-image" type="file" name="image" accept="image/*" required />
+              <span class="file-upload-name">Ningún archivo seleccionado</span>
+            </div>
+          </label>
+          <button type="submit" class="btn btn-primary" style="border:none; cursor:pointer;">Guardar foto</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>Fotos ya subidas</h2>
+        {% if gallery_images %}
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1rem;">
+          {% for image in gallery_images %}
+          <div style="border:1px solid #eee; border-radius:14px; padding:0.75rem; background:#fffdfb;">
+            <img src="/uploads/{{ image[3] }}" alt="{{ image[1] }}" style="width:100%; height:180px; object-fit:cover; border-radius:10px; margin-bottom:0.6rem;" />
+            <strong>{{ image[1] }}</strong>
+            <p style="font-size:0.9rem; color:#7a726d;">{{ image[2] or 'Sin descripción' }}</p>
+            <div style="display:flex; gap:0.5rem; margin-top:0.75rem; flex-wrap:wrap;">
+              <form action="/admin/gallery/{{ image[0] }}/delete" method="post" style="display:inline;">
+                <button type="submit" style="border:none; background:#c96a5f; color:white; padding:0.45rem 0.7rem; border-radius:999px; cursor:pointer;">Eliminar</button>
+              </form>
+              <form action="/admin/gallery/{{ image[0] }}/replace" method="post" enctype="multipart/form-data" style="display:flex; gap:0.4rem; flex-wrap:wrap;">
+                <input type="text" name="title" placeholder="Nuevo título" required style="padding:0.4rem 0.6rem; border:1px solid #ddd; border-radius:999px;" />
+                <textarea name="description" rows="1" placeholder="Nueva descripción" style="padding:0.4rem 0.6rem; border:1px solid #ddd; border-radius:10px; min-width:140px;"></textarea>
+                <div class="file-upload">
+                  <label class="file-upload-btn" for="replace-image-{{ image[0] }}">Seleccionar archivo</label>
+                  <input id="replace-image-{{ image[0] }}" type="file" name="image" accept="image/*" required />
+                  <span class="file-upload-name">Ningún archivo seleccionado</span>
+                </div>
+                <button type="submit" style="border:none; background:#b96b4f; color:white; padding:0.45rem 0.7rem; border-radius:999px; cursor:pointer;">Reemplazar</button>
+              </form>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% else %}
+        <p>No hay fotos en la galería todavía.</p>
+        {% endif %}
+      </div>
+
+      <div class="card">
+        <h2>Citas agendadas</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Cliente</th>
+              <th>Servicio</th>
+              <th>Empleado</th>
+              <th>Fecha</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for appointment in appointments %}
+            <tr>
+              <td>{{ appointment[0] }}</td>
+              <td>{{ appointment[1] or 'Sin cliente' }}</td>
+              <td>{{ appointment[2] or 'Sin servicio' }}</td>
+              <td>{{ appointment[3] or 'Sin asignar' }}</td>
+              <td>{{ appointment[4] }}</td>
+              <td>{{ appointment[5] }}</td>
+            </tr>
+            {% else %}
+            <tr>
+              <td colspan="6">No hay citas registradas.</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.file-upload').forEach((wrapper) => {
+          const input = wrapper.querySelector('input[type="file"]');
+          const button = wrapper.querySelector('.file-upload-btn');
+          const name = wrapper.querySelector('.file-upload-name');
+
+          if (!input || !button || !name) return;
+
+          input.addEventListener('change', () => {
+            const fileName = input.files && input.files[0] ? input.files[0].name : 'Ningún archivo seleccionado';
+            name.textContent = fileName;
+            button.textContent = 'Cambiar archivo';
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
