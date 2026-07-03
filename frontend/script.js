@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
       overlayTitle: 'Estudio privado',
       overlayText: 'Tu cita, tu tiempo, tu estilo.',
       footerText: 'Styles ✂ Mary by Mary Puentes. Todos los derechos reservados.',
-      footerMap: 'Av. Principal 123, Ciudad · Ver en Google Maps',
+      footerMap: 'My Salon Suite of New Rochelle',
       titleTag: 'Styles ✂ Mary | Salón premium de Mary Puentes',
       metaDescription: 'Styles ✂ Mary es un salón premium de Mary Puentes con cortes, coloración y tratamientos exclusivos.',
       whatsappHref: 'https://wa.me/19143300160?text=Hola,%20quiero%20agendar%20una%20cita%20con%20Mary%20Puentes'
@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
       overlayTitle: 'Private studio',
       overlayText: 'Your appointment, your time, your style.',
       footerText: 'Styles ✂ Mary by Mary Puentes. All rights reserved.',
-      footerMap: 'Main Ave 123, City · See on Google Maps',
+      footerMap: 'My Salon Suite of New Rochelle',
       titleTag: 'Styles ✂ Mary | Premium salon by Mary Puentes',
       metaDescription: 'Styles ✂ Mary is a premium salon by Mary Puentes offering luxury cuts, color, and personalized hair treatments.',
       whatsappHref: 'https://wa.me/19143300160?text=Hi,%20I%20would%20like%20to%20book%20an%20appointment%20with%20Mary%20Puentes.'
