@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel de administración | Styles ✂ Mary</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: 'Inter', sans-serif;
+        --bg: #f8f1eb;
+        --surface: #ffffff;
+        --text: #2b1f18;
+        --muted: #7f6b5d;
+        --accent: #c19844;
+        --accent-strong: #9a7137;
+        --border: rgba(193, 156, 96, 0.18);
+        --shadow: 0 24px 60px rgba(112, 77, 39, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(180deg, #fbf3e9 0%, #f4ebe3 100%);
+        color: var(--text);
+      }
+
+      .container {
+        width: min(1200px, calc(100% - 2rem));
+        margin: 0 auto;
+        padding: 2rem 0 3rem;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.2rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+      }
+
+      .brand span {
+        color: var(--accent);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 2.4vw, 2.6rem);
+      }
+
+      .subtitle {
+        color: var(--muted);
+        margin-top: 0.65rem;
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        box-shadow: var(--shadow);
+        padding: 1.75rem;
+        margin-bottom: 1.75rem;
+      }
+
+      .card h2 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-size: 1.35rem;
+      }
+
+      .notice {
+        padding: 1rem 1.2rem;
+        border-radius: 20px;
+        margin-bottom: 1.5rem;
+      }
+
+      .notice.error {
+        background: #fff2f0;
+        color: #8d3b37;
+        border: 1px solid #f3c4c2;
+      }
+
+      .notice.success {
+        background: #f7fff3;
+        color: #496032;
+        border: 1px solid #d8e7c4;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 0.65rem;
+      }
+
+      th,
+      td {
+        padding: 1rem 1rem;
+        text-align: left;
+      }
+
+      th {
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      tbody tr {
+        background: #fbf6ef;
+        border: 1px solid rgba(193, 156, 96, 0.12);
+        border-radius: 18px;
+      }
+
+      tbody tr td {
+        border: none;
+      }
+
+      .table-wrapper {
+        overflow-x: auto;
+      }
+
+      .form-grid {
+        display: grid;
+        gap: 1.25rem;
+      }
+
+      .form-group {
+        display: grid;
+        gap: 0.5rem;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        border-radius: 18px;
+        border: 1px solid rgba(193, 156, 96, 0.24);
+        padding: 1rem 1.1rem;
+        background: #fcf4eb;
+        color: var(--text);
+        font: inherit;
+      }
+
+      .form-group textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .file-upload {
+        display: grid;
+        gap: 0.65rem;
+      }
+
+      .file-upload input {
+        display: none;
+      }
+
+      .file-upload-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.45rem;
+        padding: 0.85rem 1.2rem;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #c19844, #e0bf71);
+        color: #2b1f18;
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+      }
+
+      .file-upload-name {
+        font-size: 0.95rem;
+        color: var(--muted);
+      }
+
+      .button-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        align-items: center;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        padding: 0.95rem 1.3rem;
+        border: none;
+        cursor: pointer;
+        font-weight: 700;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #c19844, #e0bf71);
+        color: #2b1f18;
+      }
+
+      .btn-danger {
+        background: #b96b4f;
+        color: white;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 16px 30px rgba(193, 156, 96, 0.18);
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1rem;
+      }
+
+      .gallery-item {
+        background: #fbf6ef;
+        border: 1px solid rgba(193, 156, 96, 0.12);
+        border-radius: 24px;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 16px;
+      }
+
+      .gallery-item strong {
+        display: block;
+        color: var(--text);
+      }
+
+      .gallery-item p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .gallery-actions {
+        display: grid;
+        gap: 0.6rem;
+      }
+
+      .status-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.45rem 0.8rem;
+        border-radius: 999px;
+        font-size: 0.88rem;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+      }
+
+      .status-pill.pendiente {
+        background: #fff7df;
+        color: #8a6a2d;
+      }
+
+      .status-pill.realizada {
+        background: #e7f5ea;
+        color: #3b6b43;
+      }
+
+      .status-pill.cancelada {
+        background: #fde7e7;
+        color: #8d3c38;
+      }
+
+      .appointment-actions {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .appointment-actions form {
+        margin: 0;
+      }
+
+      .action-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      @media (max-width: 860px) {
+        .topbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .table-wrapper {
+          overflow-x: auto;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          padding: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="topbar">
+        <div>
+          <div class="brand">Styles <span>✂ Mary</span></div>
+          <h1>Panel de administración</h1>
+          <p class="subtitle">Gestiona mensajes, galería y citas con un diseño limpio.</p>
+        </div>
+      </div>
+
+      {% if db_error %}
+      <div class="notice error">
+        <strong>⚠️ No se pudo conectar a PostgreSQL.</strong>
+        <p>{{ db_error }}</p>
+      </div>
+      {% endif %}
+
+      {% if message %}
+      <div class="notice success">
+        <strong>✅ {{ message }}</strong>
+      </div>
+      {% endif %}
+
+      <div class="card">
+        <h2>Mensajes de contacto</h2>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Mensaje</th>
+                <th>Fecha</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for message in messages %}
+              <tr>
+                <td>{{ message[0] }}</td>
+                <td>{{ message[1] }}</td>
+                <td>{{ message[2] }}</td>
+                <td>{{ message[3] }}</td>
+                <td>{{ message[5] }}</td>
+              </tr>
+              {% else %}
+              <tr>
+                <td colspan="5">No hay mensajes aún.</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Subir foto a la galería</h2>
+        <form action="/admin/gallery" method="post" enctype="multipart/form-data" class="form-grid">
+          <div class="form-group">
+            <label>Título de la foto</label>
+            <input type="text" name="title" required />
+          </div>
+          <div class="form-group">
+            <label>Descripción</label>
+            <textarea name="description" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Imagen</label>
+            <div class="file-upload">
+              <label class="file-upload-btn" for="upload-image">Seleccionar archivo</label>
+              <input id="upload-image" type="file" name="image" accept="image/*" required />
+              <span class="file-upload-name">Ningún archivo seleccionado</span>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Guardar foto</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>Fotos ya subidas</h2>
+        {% if gallery_images %}
+        <div class="gallery-grid">
+          {% for image in gallery_images %}
+          <div class="gallery-item">
+            <img src="/uploads/{{ image[3] }}" alt="{{ image[1] }}" />
+            <strong>{{ image[1] }}</strong>
+            <p>{{ image[2] or 'Sin descripción' }}</p>
+            <div class="gallery-actions">
+              <div class="action-row">
+                <form action="/admin/gallery/{{ image[0] }}/delete" method="post">
+                  <button type="submit" class="btn btn-danger">Eliminar</button>
+                </form>
+              </div>
+              <form action="/admin/gallery/{{ image[0] }}/replace" method="post" enctype="multipart/form-data" class="gallery-actions">
+                <div class="form-group">
+                  <label>Nuevo título</label>
+                  <input type="text" name="title" placeholder="Nuevo título" required />
+                </div>
+                <div class="form-group">
+                  <label>Nueva descripción</label>
+                  <textarea name="description" rows="1" placeholder="Nueva descripción"></textarea>
+                </div>
+                <div class="file-upload">
+                  <label class="file-upload-btn" for="replace-image-{{ image[0] }}">Seleccionar archivo</label>
+                  <input id="replace-image-{{ image[0] }}" type="file" name="image" accept="image/*" required />
+                  <span class="file-upload-name">Ningún archivo seleccionado</span>
+                </div>
+                <button type="submit" class="btn btn-primary">Reemplazar</button>
+              </form>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% else %}
+        <p>No hay fotos en la galería todavía.</p>
+        {% endif %}
+      </div>
+
+      <div class="card">
+        <h2>Citas agendadas</h2>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Cliente</th>
+                <th>Servicio</th>
+                <th>Empleado</th>
+                <th>Fecha</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for appointment in appointments %}
+              <tr>
+                <td>{{ appointment[0] }}</td>
+                <td>{{ appointment[1] or 'Sin cliente' }}</td>
+                <td>{{ appointment[2] or 'Sin servicio' }}</td>
+                <td>{{ appointment[3] or 'Sin asignar' }}</td>
+                <td>{{ appointment[4] }}</td>
+                <td>
+                  <span class="status-pill {{ appointment[5] | lower | replace(' ', '-') }}">
+                    {{ appointment[5] }}
+                  </span>
+                </td>
+                <td class="appointment-actions">
+                  <form action="/admin/appointment/{{ appointment[0] }}/delete" method="post">
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                  </form>
+                </td>
+              </tr>
+              {% else %}
+              <tr>
+                <td colspan="7">No hay citas registradas.</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.file-upload').forEach((wrapper) => {
+          const input = wrapper.querySelector('input[type="file"]');
+          const button = wrapper.querySelector('.file-upload-btn');
+          const name = wrapper.querySelector('.file-upload-name');
+
+          if (!input || !button || !name) return;
+
+          input.addEventListener('change', () => {
+            const fileName = input.files && input.files[0] ? input.files[0].name : 'Ningún archivo seleccionado';
+            name.textContent = fileName;
+            button.textContent = 'Cambiar archivo';
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

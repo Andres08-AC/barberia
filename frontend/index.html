@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="titleTag">Styles ✂ Mary | Salón premium de Mary Puentes</title>
+    <meta
+      name="description"
+      content="Styles ✂ Mary es un salón premium de Mary Puentes con cortes, color y tratamientos exclusivos."
+      data-i18n-meta="metaDescription"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <a href="#" class="brand">Styles <span>✂ Mary</span></a>
+          <div class="nav-actions">
+            <div class="nav-links">
+              <a href="#servicios" data-i18n="services">Servicios</a>
+              <a href="#galeria" data-i18n="gallery">Galería</a>
+              <a href="#horario" data-i18n="schedule">Horario</a>
+              <a href="#contacto" data-i18n="contact">Contacto</a>
+            </div>
+            <button class="lang-toggle" id="lang-toggle" type="button">EN</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <div class="hero-badge" data-i18n="badge">Experiencia premium · Reserva exclusiva</div>
+            <h1 data-i18n="title">Estilo, lujo y resultados impecables con Mary Puentes.</h1>
+            <p data-i18n="description">
+              En Styles ✂ Mary, Mary Puentes crea looks premium con cortes modernos, coloración de alto impacto y tratamientos exclusivos.
+            </p>
+            <div class="hero-highlights">
+              <span class="highlight-pill" data-i18n="highlight1">Atención personalizada</span>
+              <span class="highlight-pill" data-i18n="highlight2">Acabados de lujo</span>
+              <span class="highlight-pill" data-i18n="highlight3">Estilo sofisticado</span>
+            </div>
+            <div class="button-group">
+              <a href="#contacto" class="btn btn-primary" data-i18n="primaryBtn">Reservar cita</a>
+              <a href="#servicios" class="btn btn-secondary" data-i18n="secondaryBtn">Ver servicios</a>
+            </div>
+          </div>
+          <div class="hero-card">
+            <div class="image-placeholder">
+              <div class="overlay-card">
+                <span data-i18n="overlayTitle">Estudio privado</span>
+                <p data-i18n="overlayText">Tu cita, tu tiempo, tu estilo.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="servicios">
+        <div class="container">
+          <div class="section-title">
+            <h2 data-i18n="sectionTitle1">Servicios de alto nivel</h2>
+            <p data-i18n="sectionText1">Una experiencia cuidada hasta el último detalle.</p>
+          </div>
+          <div class="cards">
+            <article class="card">
+              <h3 data-i18n="card1Title">Cortes personalizados</h3>
+              <p data-i18n="card1Text">Diseñamos cada corte con precisión para que realce tu esencia y personalidad.</p>
+            </article>
+            <article class="card">
+              <h3 data-i18n="card2Title">Coloración profesional</h3>
+              <p data-i18n="card2Text">Reflejos, balayage y tonos sofisticados con una ejecución impecable.</p>
+            </article>
+            <article class="card">
+              <h3 data-i18n="card3Title">Tratamientos capilares</h3>
+              <p data-i18n="card3Text">Hidratación, reconstrucción y cuidado premium para un cabello brillante y saludable.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="galeria">
+        <div class="container">
+          <div class="section-title">
+            <h2 data-i18n="galleryTitle">Resultados que hablan por sí solos</h2>
+            <p data-i18n="galleryText">Looks elegantes, modernos y cuidadosamente ejecutados.</p>
+          </div>
+          <div class="gallery-grid" id="gallery-grid">
+            <article class="gallery-card">
+              <div class="gallery-image gallery-one"></div>
+              <h3 data-i18n="gallery1Title">Cortes modernos</h3>
+              <p data-i18n="gallery1Text">Texturas limpias, volumen elegante y personalidad.</p>
+            </article>
+            <article class="gallery-card">
+              <div class="gallery-image gallery-two"></div>
+              <h3 data-i18n="gallery2Title">Color sofisticado</h3>
+              <p data-i18n="gallery2Text">Paletas de color con profundidad, luminosidad y refinamiento.</p>
+            </article>
+            <article class="gallery-card">
+              <div class="gallery-image gallery-three"></div>
+              <h3 data-i18n="gallery3Title">Estilo y cuidado</h3>
+              <p data-i18n="gallery3Text">Tratamientos que devuelven fuerza, brillo y suavidad.</p>
+            </article>
+          </div>
+          <div class="button-group gallery-pagination" id="gallery-pagination"></div>
+        </div>
+      </section>
+
+      <section id="horario">
+        <div class="container info-grid">
+          <div class="schedule-card">
+            <h3 data-i18n="scheduleTitle">Horario de atención</h3>
+            <ul>
+              <li data-i18n="scheduleWeekdays">Lunes a Viernes: 9:00 - 20:00</li>
+              <li data-i18n="scheduleSaturday">Sábado: 9:00 - 14:00</li>
+              <li data-i18n="scheduleSunday">Domingo: Cerrado</li>
+            </ul>
+          </div>
+          <form class="contact-form" id="reservation-form">
+            <h3 data-i18n="formTitle">Reserva tu cita</h3>
+            <label>
+              <span data-i18n="nameLabel">Nombre</span>
+              <input type="text" name="name" placeholder="Tu nombre" data-i18n-placeholder="nameLabel" required />
+            </label>
+            <label>
+              <span data-i18n="emailLabel">Correo</span>
+              <input type="email" name="email" placeholder="tu@email.com" data-i18n-placeholder="emailLabel" required />
+            </label>
+            <label>
+              <span data-i18n="dateLabel">Fecha</span>
+              <input type="date" name="date" required />
+            </label>
+            <label>
+              <span data-i18n="timeLabel">Hora</span>
+              <input type="time" name="time" required />
+            </label>
+            <label class="select-label">
+              <span data-i18n="serviceLabel">Servicio</span>
+              <div class="select-wrap">
+                <select name="service" required>
+                  <option value="" data-i18n="servicePlaceholder">Elige el servicio que deseas</option>
+                  <option value="Corte personalizado" data-i18n="serviceOpt1">Corte personalizado</option>
+                  <option value="Coloración profesional" data-i18n="serviceOpt2">Coloración profesional</option>
+                  <option value="Tratamiento capilar" data-i18n="serviceOpt3">Tratamiento capilar</option>
+                </select>
+                <span class="select-arrow">▼</span>
+              </div>
+            </label>
+            <button type="submit" class="btn btn-primary" data-i18n="submitBtn">Reservar cita</button>
+            <p class="form-message" id="form-message"></p>
+          </form>
+        </div>
+      </section>
+
+      <section id="sobre-nosotros">
+        <div class="container about">
+          <div class="about-box">
+            <div class="section-title section-title-left">
+              <h2 data-i18n="aboutTitle1">Un espacio pensado para tu estilo</h2>
+            </div>
+            <p data-i18n="aboutText1">
+              Mary Puentes combina técnica experta, creatividad y una atención dedicada para que cada visita sea una experiencia lujosa y memorable.
+            </p>
+            <ul class="about-list">
+              <li data-i18n="aboutList1">Profesionales con experiencia y formación constante.</li>
+              <li data-i18n="aboutList2">Productos de calidad para cuidar tu cabello.</li>
+              <li data-i18n="aboutList3">Ambiente acogedor y moderno.</li>
+            </ul>
+          </div>
+          <div class="about-box">
+            <div class="section-title section-title-left">
+              <h2 data-i18n="aboutTitle2">Por qué nos eligen</h2>
+            </div>
+            <p data-i18n="aboutText2">
+              Nos encanta escuchar tus ideas y convertirlas en un resultado que te haga sentir
+              segura, cómoda y con estilo.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto">
+        <div class="container">
+          <div class="contact-banner">
+            <h2 data-i18n="bannerTitle">¿Listo para transformar tu look?</h2>
+            <p class="banner-text" data-i18n="bannerText">Reserva tu cita y vive una experiencia premium hecha para destacar.</p>
+            <a href="https://wa.me/19143300160?text=Hola,%20quiero%20agendar%20una%20cita%20con%20Mary%20Puentes" class="btn btn-secondary whatsapp-link" data-i18n="bannerBtn" data-i18n-href="whatsappHref">Agendar cita</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <p>© <span data-year></span> <span data-i18n="footerText">Styles ✂ Mary by Mary Puentes. Todos los derechos reservados.</span></p>
+          <a
+            class="footer-link"
+            href="https://www.google.com/maps/place/My+Salon+Suite+of+New+Rochelle/@40.8971447,-73.796011,747m/data=!3m2!1e3!4b1!4m6!3m5!1s0x89c28ddd1dfd01dd:0x34401b28cedd7f88!8m2!3d40.8971447!4d-73.796011!16s%2Fg%2F11pv8j8x1k!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-i18n="footerMap"
+          >
+            My Salon Suite of New Rochelle
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
