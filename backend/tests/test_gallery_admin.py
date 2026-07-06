@@ -1,10 +1,11 @@
 import os
 import unittest
+from datetime import datetime, timedelta
 from io import BytesIO
 
 import psycopg
 
-from app import app, UPLOAD_FOLDER
+from app import app, UPLOAD_FOLDER, is_appointment_slot_available
 
 
 class GalleryAdminFlowTests(unittest.TestCase):
@@ -44,6 +45,20 @@ class GalleryAdminFlowTests(unittest.TestCase):
         )
         self.assertEqual(response.status_code, 302)
         return response
+
+    def test_appointment_slot_conflict_detection(self):
+        base_time = datetime(2026, 7, 10, 10, 0)
+        existing = [(1, base_time, 60)]
+
+        self.assertFalse(
+            is_appointment_slot_available(base_time, base_time + timedelta(minutes=60), existing)
+        )
+        self.assertTrue(
+            is_appointment_slot_available(base_time + timedelta(minutes=60), base_time + timedelta(minutes=120), existing)
+        )
+        self.assertFalse(
+            is_appointment_slot_available(base_time + timedelta(minutes=30), base_time + timedelta(minutes=90), existing)
+        )
 
     def test_upload_delete_and_replace_gallery_image(self):
         self._upload_image("Test gallery upload", "Descripción inicial")

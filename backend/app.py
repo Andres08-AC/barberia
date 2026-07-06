@@ -1,4 +1,5 @@
 import os
+from datetime import datetime, timedelta
 from pathlib import Path
 
 import psycopg
@@ -253,9 +254,38 @@ def get_gallery_images():
     ]
 
 
+def is_appointment_slot_available(start_time, end_time, existing_appointments):
+    for _, existing_start, existing_duration in existing_appointments:
+        existing_end = existing_start + timedelta(minutes=existing_duration)
+        if start_time < existing_end and end_time > existing_start:
+            return False
+    return True
+
+
 def save_appointment(name, email, appointment_date, appointment_time, service):
+    appointment_datetime = datetime.strptime(f"{appointment_date} {appointment_time}", "%Y-%m-%d %H:%M")
+    appointment_duration_minutes = 60
+    appointment_end = appointment_datetime + timedelta(minutes=appointment_duration_minutes)
+
     with psycopg.connect(**get_db_config()) as conn:
         with conn.cursor() as cur:
+            cur.execute(
+                """
+                SELECT fecha_hora
+                FROM citas
+                WHERE estado != 'cancelada'
+                ORDER BY fecha_hora
+                """
+            )
+            existing_appointments = cur.fetchall()
+
+            if not is_appointment_slot_available(
+                appointment_datetime,
+                appointment_end,
+                [(0, row[0], appointment_duration_minutes) for row in existing_appointments],
+            ):
+                raise ValueError("El horario seleccionado ya está ocupado.")
+
             cur.execute(
                 """
                 INSERT INTO clientes (nombre, email)
@@ -285,7 +315,7 @@ def save_appointment(name, email, appointment_date, appointment_time, service):
                 (
                     client_id,
                     service_id,
-                    f"{appointment_date} {appointment_time}",
+                    appointment_datetime,
                     "pendiente",
                     "Reservada desde la web",
                 ),
@@ -416,6 +446,8 @@ def appointments():
 
     try:
         save_appointment(name, email, appointment_date, appointment_time, service)
+    except ValueError as exc:
+        return jsonify({"success": False, "message": str(exc)}), 409
     except Exception as exc:
         app.logger.exception("No se pudo guardar la cita en PostgreSQL")
         return jsonify({"success": False, "message": "No se pudo guardar la cita. Revisa la conexión a PostgreSQL."}), 500

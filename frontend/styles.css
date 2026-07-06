@@ -416,9 +416,26 @@ section {
 }
 
 .form-message {
-  min-height: 1.2rem;
+  min-height: 1.4rem;
+  margin-top: 0.2rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 14px;
   color: var(--primary-dark);
   font-weight: 600;
+  background: rgba(248, 243, 236, 0.95);
+  border: 1px solid rgba(193, 156, 96, 0.16);
+}
+
+.form-message.success {
+  color: #35663f;
+  background: #f1f9ef;
+  border-color: #b8d9b0;
+}
+
+.form-message.error {
+  color: #9b2d2d;
+  background: #fff2f2;
+  border-color: #efb8b8;
 }
 
 .about {

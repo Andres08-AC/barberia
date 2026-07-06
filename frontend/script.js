@@ -204,6 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const formData = new FormData(form);
       message.textContent = 'Guardando cita...';
+      message.className = 'form-message';
 
       try {
         const response = await fetch('/appointments', {
@@ -213,11 +214,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const data = await response.json();
         message.textContent = data.message || 'Cita registrada.';
+        message.className = `form-message ${response.ok ? 'success' : 'error'}`;
         if (response.ok) {
           form.reset();
         }
       } catch (error) {
         message.textContent = 'No se pudo guardar la cita. Intenta de nuevo.';
+        message.className = 'form-message error';
       }
     });
   }
