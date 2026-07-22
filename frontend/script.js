@@ -428,6 +428,16 @@ document.addEventListener('DOMContentLoaded', () => {
         message.className = `form-message ${response.ok ? 'success' : 'error'}`;
         if (response.ok) {
           form.reset();
+          const name = formData.get('name')?.toString().trim() || 'Cliente';
+          const email = formData.get('email')?.toString().trim() || '';
+          const appointmentDate = formData.get('date')?.toString().trim() || '';
+          const appointmentTime = formData.get('time')?.toString().trim() || '';
+          const service = formData.get('service')?.toString().trim() || '';
+          const whatsappText = `Hola, quiero confirmar una cita en Styles ✂ Mary.\nNombre: ${name}\nCorreo: ${email}\nServicio: ${service}\nFecha: ${appointmentDate}\nHora: ${appointmentTime}`;
+          const whatsappLink = document.querySelector('.whatsapp-link');
+          const whatsappBaseUrl = whatsappLink ? whatsappLink.getAttribute('href').split('?')[0] : 'https://wa.me/19143300160';
+          const whatsappUrl = `${whatsappBaseUrl}?text=${encodeURIComponent(whatsappText)}`;
+          window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
         }
       } catch (error) {
         message.textContent = 'No se pudo guardar la cita. Intenta de nuevo.';
