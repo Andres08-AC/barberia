@@ -419,7 +419,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const appointmentDate = formData.get('date')?.toString().trim() || '';
       const appointmentTime = formData.get('time')?.toString().trim() || '';
       const service = formData.get('service')?.toString().trim() || '';
-      const whatsappText = `Hola, quiero confirmar una cita en Styles ✂ Mary.\nNombre: ${name}\nCorreo: ${email}\nServicio: ${service}\nFecha: ${appointmentDate}\nHora: ${appointmentTime}`;
+      const whatsappText = `Hola, tu cita quedó agendada en Styles ✂ Mary.\nNombre: ${name}\nCorreo: ${email}\nServicio: ${service}\nFecha: ${appointmentDate}\nHora: ${appointmentTime}`;
       const whatsappLink = document.querySelector('.whatsapp-link');
       const whatsappBaseUrl = whatsappLink ? whatsappLink.getAttribute('href') : 'https://wa.me/19143300160?text=Hola';
       const whatsappUrl = new URL(whatsappBaseUrl);
