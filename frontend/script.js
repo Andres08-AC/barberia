@@ -437,7 +437,15 @@ document.addEventListener('DOMContentLoaded', () => {
           const whatsappLink = document.querySelector('.whatsapp-link');
           const whatsappBaseUrl = whatsappLink ? whatsappLink.getAttribute('href').split('?')[0] : 'https://wa.me/19143300160';
           const whatsappUrl = `${whatsappBaseUrl}?text=${encodeURIComponent(whatsappText)}`;
-          window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+
+          try {
+            const newWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+            if (!newWindow) {
+              window.location.href = whatsappUrl;
+            }
+          } catch (error) {
+            window.location.href = whatsappUrl;
+          }
         }
       } catch (error) {
         message.textContent = 'No se pudo guardar la cita. Intenta de nuevo.';
