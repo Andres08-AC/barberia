@@ -254,6 +254,23 @@ def get_gallery_images():
     ]
 
 
+def is_appointment_within_business_hours(start_time, end_time):
+    if start_time.weekday() == 6:
+        return False
+
+    if start_time.weekday() in {0, 2, 3}:
+        opening_time = start_time.replace(hour=11, minute=30, second=0, microsecond=0)
+        closing_time = start_time.replace(hour=18, minute=0, second=0, microsecond=0)
+    elif start_time.weekday() == 1:
+        opening_time = start_time.replace(hour=9, minute=0, second=0, microsecond=0)
+        closing_time = start_time.replace(hour=18, minute=0, second=0, microsecond=0)
+    else:
+        opening_time = start_time.replace(hour=8, minute=0, second=0, microsecond=0)
+        closing_time = start_time.replace(hour=18, minute=0, second=0, microsecond=0)
+
+    return start_time >= opening_time and end_time <= closing_time
+
+
 def is_appointment_slot_available(start_time, end_time, existing_appointments):
     for _, existing_start, existing_duration in existing_appointments:
         existing_end = existing_start + timedelta(minutes=existing_duration)
@@ -266,6 +283,9 @@ def save_appointment(name, email, appointment_date, appointment_time, service):
     appointment_datetime = datetime.strptime(f"{appointment_date} {appointment_time}", "%Y-%m-%d %H:%M")
     appointment_duration_minutes = 60
     appointment_end = appointment_datetime + timedelta(minutes=appointment_duration_minutes)
+
+    if not is_appointment_within_business_hours(appointment_datetime, appointment_end):
+        raise ValueError("El horario seleccionado está fuera del horario de atención.")
 
     with psycopg.connect(**get_db_config()) as conn:
         with conn.cursor() as cur:
@@ -305,6 +325,16 @@ def save_appointment(name, email, appointment_date, appointment_time, service):
                 (service,),
             )
             service_row = cur.fetchone()
+            if not service_row:
+                cur.execute(
+                    """
+                    INSERT INTO servicios (nombre, descripcion, precio, duracion_minutos)
+                    VALUES (%s, %s, %s, %s)
+                    RETURNING id
+                    """,
+                    (service, "Servicio reservado desde la web", 0.0, 60),
+                )
+                service_row = cur.fetchone()
             service_id = service_row[0] if service_row else None
 
             cur.execute(

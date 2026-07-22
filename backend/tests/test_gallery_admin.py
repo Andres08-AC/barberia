@@ -5,7 +5,7 @@ from io import BytesIO
 
 import psycopg
 
-from app import app, UPLOAD_FOLDER, is_appointment_slot_available
+from app import app, UPLOAD_FOLDER, is_appointment_slot_available, is_appointment_within_business_hours
 
 
 class GalleryAdminFlowTests(unittest.TestCase):
@@ -59,6 +59,20 @@ class GalleryAdminFlowTests(unittest.TestCase):
         self.assertFalse(
             is_appointment_slot_available(base_time + timedelta(minutes=30), base_time + timedelta(minutes=90), existing)
         )
+
+    def test_appointment_business_hours_validation(self):
+        valid_start = datetime(2026, 7, 10, 11, 30)
+        valid_end = valid_start + timedelta(minutes=60)
+        self.assertTrue(is_appointment_within_business_hours(valid_start, valid_end))
+
+        early_start = datetime(2026, 7, 10, 7, 30)
+        self.assertFalse(is_appointment_within_business_hours(early_start, early_start + timedelta(minutes=60)))
+
+        late_start = datetime(2026, 7, 10, 17, 30)
+        self.assertFalse(is_appointment_within_business_hours(late_start, late_start + timedelta(minutes=60)))
+
+        sunday_start = datetime(2026, 7, 12, 10, 0)
+        self.assertFalse(is_appointment_within_business_hours(sunday_start, sunday_start + timedelta(minutes=60)))
 
     def test_upload_delete_and_replace_gallery_image(self):
         self._upload_image("Test gallery upload", "Descripción inicial")

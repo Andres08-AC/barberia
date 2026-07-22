@@ -23,6 +23,42 @@ document.addEventListener('DOMContentLoaded', () => {
       secondaryBtn: 'Ver servicios',
       sectionTitle1: 'Servicios de alto nivel',
       sectionText1: 'Una experiencia cuidada hasta el último detalle.',
+      serviceCategory1Title: 'Keratina & tratamientos',
+      serviceCategory1Item1: 'Keratina parcial',
+      serviceCategory1Item2: 'Keratina completa',
+      serviceCategory1Item3: 'Tratamiento Olaplex hidratante',
+      serviceCategory1Item4: 'Wella Professionals terapia de reparación',
+      serviceCategory2Title: 'Cortes',
+      serviceCategory2Item1: 'Shampoo / Blowdry / Peinado',
+      serviceCategory2Item2: 'Blow Dry',
+      serviceCategory2Item3: 'Flat Iron',
+      serviceCategory2Item4: 'Updo',
+      serviceCategory2Item5: 'Corte de hombre',
+      serviceCategory2Item6: 'Corte de hombre con diseño',
+      serviceCategory2Item7: 'Corte de mujer',
+      serviceCategory2Item8: 'Corte de niño',
+      serviceCategory2Item9: 'Corte de niña',
+      serviceCategory3Title: 'Paquetes Blow Dry',
+      serviceCategory3Item1: 'Blow Dry ... consigue 5 + 1 gratis',
+      serviceCategory3Item2: 'Blow Dry (cabello largo) ... consigue 5 + 1 gratis',
+      serviceCategory3Item3: 'Updo',
+      serviceCategory4Title: 'Maquillaje & peinado',
+      serviceCategory4Item1: 'Maquillaje',
+      serviceCategory4Item2: 'Peinados',
+      serviceCategory4Item3: 'Maquillaje y peinado para novia',
+      serviceCategory5Title: 'Color',
+      serviceCategory5Item1: 'Proceso simple',
+      serviceCategory5Item2: 'Color medio',
+      serviceCategory5Item3: 'Color completo',
+      serviceCategory5Item4: 'Corrección de color',
+      serviceCategory5Item5: 'Highlights en marco facial',
+      serviceCategory5Item6: 'Highlights parciales',
+      serviceCategory5Item7: 'Highlights completos',
+      serviceCategory5Item8: 'Balayage en marco facial',
+      serviceCategory5Item9: 'Balayage parcial',
+      serviceCategory5Item10: 'Balayage completo',
+      serviceCategory5Item11: 'Glaze',
+      serviceCategory5Item12: 'Glaze con color',
       card1Title: 'Cortes personalizados',
       card1Text: 'Diseñamos cada corte con precisión para que realce tu esencia y personalidad.',
       card2Title: 'Coloración profesional',
@@ -38,9 +74,14 @@ document.addEventListener('DOMContentLoaded', () => {
       gallery3Title: 'Estilo y cuidado',
       gallery3Text: 'Tratamientos que devuelven fuerza, brillo y suavidad.',
       scheduleTitle: 'Horario de atención',
-      scheduleWeekdays: 'Lunes a Viernes: 9:00 - 20:00',
-      scheduleSaturday: 'Sábado: 9:00 - 14:00',
+      scheduleMonday: 'Lunes: 11:30 AM - 6:00 PM',
+      scheduleTuesday: 'Martes: 9:00 AM - 6:00 PM',
+      scheduleWednesday: 'Miércoles: 11:30 AM - 6:00 PM',
+      scheduleThursday: 'Jueves: 9:00 AM - 6:00 PM',
+      scheduleFriday: 'Viernes: 8:00 AM - 6:00 PM',
+      scheduleSaturday: 'Sábado: 8:00 AM - 6:00 PM',
       scheduleSunday: 'Domingo: Cerrado',
+      scheduleVip: 'Citas especiales bajo agenda previa VIP.',
       formTitle: 'Reserva tu cita',
       nameLabel: 'Nombre',
       emailLabel: 'Correo',
@@ -48,9 +89,36 @@ document.addEventListener('DOMContentLoaded', () => {
       timeLabel: 'Hora',
       serviceLabel: 'Servicio',
       servicePlaceholder: 'Elige el servicio que deseas',
-      serviceOpt1: 'Corte personalizado',
-      serviceOpt2: 'Coloración profesional',
-      serviceOpt3: 'Tratamiento capilar',
+      serviceOpt1: 'Keratina parcial',
+      serviceOpt2: 'Keratina completa',
+      serviceOpt3: 'Tratamiento Olaplex hidratante',
+      serviceOpt4: 'Wella Professionals terapia de reparación',
+      serviceOpt5: 'Shampoo / Blowdry / Peinado',
+      serviceOpt6: 'Blow Dry',
+      serviceOpt7: 'Flat Iron',
+      serviceOpt8: 'Updo',
+      serviceOpt9: 'Corte de hombre',
+      serviceOpt10: 'Corte de hombre con diseño',
+      serviceOpt11: 'Corte de mujer',
+      serviceOpt12: 'Corte de niño',
+      serviceOpt13: 'Corte de niña',
+      serviceOpt14: 'Blow Dry ... consigue 5 + 1 gratis',
+      serviceOpt15: 'Blow Dry (cabello largo) ... consigue 5 + 1 gratis',
+      serviceOpt16: 'Maquillaje',
+      serviceOpt17: 'Peinados',
+      serviceOpt18: 'Maquillaje y peinado para novia',
+      serviceOpt19: 'Proceso simple',
+      serviceOpt20: 'Color medio',
+      serviceOpt21: 'Color completo',
+      serviceOpt22: 'Corrección de color',
+      serviceOpt23: 'Highlights en marco facial',
+      serviceOpt24: 'Highlights parciales',
+      serviceOpt25: 'Highlights completos',
+      serviceOpt26: 'Balayage en marco facial',
+      serviceOpt27: 'Balayage parcial',
+      serviceOpt28: 'Balayage completo',
+      serviceOpt29: 'Glaze',
+      serviceOpt30: 'Glaze con color',
       submitBtn: 'Reservar cita',
       aboutTitle1: 'Un espacio pensado para tu estilo',
       aboutText1: 'En Styles ✂ Mary combinamos técnica, creatividad y una atención cercana para que cada visita sea una experiencia relajante y memorable.',
@@ -85,6 +153,42 @@ document.addEventListener('DOMContentLoaded', () => {
       secondaryBtn: 'View services',
       sectionTitle1: 'High-level services',
       sectionText1: 'An experience cared for down to the last detail.',
+      serviceCategory1Title: 'Keratin & treatments',
+      serviceCategory1Item1: 'Partial keratin',
+      serviceCategory1Item2: 'Full keratin',
+      serviceCategory1Item3: 'Hydrating Olaplex treatment',
+      serviceCategory1Item4: 'Wella Professionals repair therapy',
+      serviceCategory2Title: 'Haircuts',
+      serviceCategory2Item1: 'Shampoo / blowdry / styling',
+      serviceCategory2Item2: 'Blow dry',
+      serviceCategory2Item3: 'Flat iron',
+      serviceCategory2Item4: 'Updo',
+      serviceCategory2Item5: 'Men\'s haircut',
+      serviceCategory2Item6: 'Men\'s haircut with design',
+      serviceCategory2Item7: 'Women\'s haircut',
+      serviceCategory2Item8: 'Boy\'s haircut',
+      serviceCategory2Item9: 'Girl\'s haircut',
+      serviceCategory3Title: 'Blow dry packages',
+      serviceCategory3Item1: 'Blow dry ... get 5 + 1 free',
+      serviceCategory3Item2: 'Blow dry (long hair) ... get 5 + 1 free',
+      serviceCategory3Item3: 'Updo',
+      serviceCategory4Title: 'Makeup & styling',
+      serviceCategory4Item1: 'Makeup',
+      serviceCategory4Item2: 'Hairstyles',
+      serviceCategory4Item3: 'Bridal makeup and hairstyle',
+      serviceCategory5Title: 'Color',
+      serviceCategory5Item1: 'Single process',
+      serviceCategory5Item2: 'Medium color',
+      serviceCategory5Item3: 'Full color',
+      serviceCategory5Item4: 'Color correction',
+      serviceCategory5Item5: 'Face frame highlights',
+      serviceCategory5Item6: 'Partial highlights',
+      serviceCategory5Item7: 'Full highlights',
+      serviceCategory5Item8: 'Face frame balayage',
+      serviceCategory5Item9: 'Partial balayage',
+      serviceCategory5Item10: 'Full balayage',
+      serviceCategory5Item11: 'Glaze',
+      serviceCategory5Item12: 'Glaze with color',
       card1Title: 'Personalized cuts',
       card1Text: 'We design each cut with precision so it highlights your essence and personality.',
       card2Title: 'Professional coloring',
@@ -100,9 +204,14 @@ document.addEventListener('DOMContentLoaded', () => {
       gallery3Title: 'Style and care',
       gallery3Text: 'Treatments that restore strength, shine and softness.',
       scheduleTitle: 'Opening hours',
-      scheduleWeekdays: 'Monday to Friday: 9:00 AM - 8:00 PM',
-      scheduleSaturday: 'Saturday: 9:00 AM - 2:00 PM',
+      scheduleMonday: 'Monday: 11:30 AM - 6:00 PM',
+      scheduleTuesday: 'Tuesday: 9:00 AM - 6:00 PM',
+      scheduleWednesday: 'Wednesday: 11:30 AM - 6:00 PM',
+      scheduleThursday: 'Thursday: 9:00 AM - 6:00 PM',
+      scheduleFriday: 'Friday: 8:00 AM - 6:00 PM',
+      scheduleSaturday: 'Saturday: 8:00 AM - 6:00 PM',
       scheduleSunday: 'Sunday: Closed',
+      scheduleVip: 'Special appointments by prior VIP booking.',
       formTitle: 'Book your appointment',
       nameLabel: 'Name',
       emailLabel: 'Email',
@@ -110,9 +219,36 @@ document.addEventListener('DOMContentLoaded', () => {
       timeLabel: 'Time',
       serviceLabel: 'Service',
       servicePlaceholder: 'Choose the service you want',
-      serviceOpt1: 'Personalized cut',
-      serviceOpt2: 'Professional coloring',
-      serviceOpt3: 'Hair treatment',
+      serviceOpt1: 'Partial keratin',
+      serviceOpt2: 'Full keratin',
+      serviceOpt3: 'Hydrating Olaplex treatment',
+      serviceOpt4: 'Wella Professionals repair therapy',
+      serviceOpt5: 'Shampoo / blowdry / styling',
+      serviceOpt6: 'Blow dry',
+      serviceOpt7: 'Flat iron',
+      serviceOpt8: 'Updo',
+      serviceOpt9: 'Men\'s haircut',
+      serviceOpt10: 'Men\'s haircut with design',
+      serviceOpt11: 'Women\'s haircut',
+      serviceOpt12: 'Boy\'s haircut',
+      serviceOpt13: 'Girl\'s haircut',
+      serviceOpt14: 'Blow dry ... get 5 + 1 free',
+      serviceOpt15: 'Blow dry (long hair) ... get 5 + 1 free',
+      serviceOpt16: 'Makeup',
+      serviceOpt17: 'Hairstyles',
+      serviceOpt18: 'Bridal makeup and hairstyle',
+      serviceOpt19: 'Single process',
+      serviceOpt20: 'Medium color',
+      serviceOpt21: 'Full color',
+      serviceOpt22: 'Color correction',
+      serviceOpt23: 'Face frame highlights',
+      serviceOpt24: 'Partial highlights',
+      serviceOpt25: 'Full highlights',
+      serviceOpt26: 'Face frame balayage',
+      serviceOpt27: 'Partial balayage',
+      serviceOpt28: 'Full balayage',
+      serviceOpt29: 'Glaze',
+      serviceOpt30: 'Glaze with color',
       submitBtn: 'Book appointment',
       aboutTitle1: 'A space designed for your style',
       aboutText1: 'At Styles ✂ Mary we combine technique, creativity and close attention so each visit is a relaxing and memorable experience.',
@@ -149,6 +285,23 @@ document.addEventListener('DOMContentLoaded', () => {
         el.setAttribute('placeholder', t[key]);
       }
     });
+    const serviceSelect = document.querySelector('select[name="service"]');
+    if (serviceSelect) {
+      const options = Array.from(serviceSelect.options);
+      options.forEach((option, index) => {
+        const optionKey = option.getAttribute('data-i18n');
+        if (optionKey && t[optionKey]) {
+          option.textContent = t[optionKey];
+        }
+      });
+      const selectedValue = serviceSelect.value;
+      if (selectedValue) {
+        const matchingOption = Array.from(serviceSelect.options).find((option) => option.value === selectedValue);
+        if (matchingOption) {
+          serviceSelect.value = selectedValue;
+        }
+      }
+    }
     document.querySelectorAll('[data-i18n-value]').forEach((el) => {
       const key = el.getAttribute('data-i18n-value');
       if (t[key]) {
@@ -199,6 +352,64 @@ document.addEventListener('DOMContentLoaded', () => {
   const message = document.getElementById('form-message');
 
   if (form && message) {
+    const dateInput = form.querySelector('input[name="date"]');
+    const timeInput = form.querySelector('input[name="time"]');
+
+    const updateTimeConstraints = () => {
+      if (!dateInput || !timeInput) {
+        return;
+      }
+
+      const selectedDate = dateInput.value ? new Date(`${dateInput.value}T00:00:00`) : null;
+      if (!selectedDate || Number.isNaN(selectedDate.getTime())) {
+        timeInput.disabled = true;
+        timeInput.value = '';
+        return;
+      }
+
+      const day = selectedDate.getDay();
+      let minTime = '';
+      let maxTime = '';
+      let isClosed = false;
+
+      if (day === 0) {
+        isClosed = true;
+      } else if (day === 2) {
+        minTime = '09:00';
+        maxTime = '18:00';
+      } else if (day === 1 || day === 3 || day === 4) {
+        minTime = '11:30';
+        maxTime = '18:00';
+      } else {
+        minTime = '08:00';
+        maxTime = '18:00';
+      }
+
+      timeInput.disabled = isClosed;
+      timeInput.setAttribute('min', minTime);
+      timeInput.setAttribute('max', maxTime);
+
+      if (isClosed) {
+        timeInput.value = '';
+        message.textContent = 'El salón permanece cerrado ese día.';
+        message.className = 'form-message error';
+        return;
+      }
+
+      if (timeInput.value && (timeInput.value < minTime || timeInput.value > maxTime)) {
+        timeInput.value = '';
+        message.textContent = 'Selecciona una hora dentro del horario de atención.';
+        message.className = 'form-message error';
+      } else {
+        message.textContent = '';
+        message.className = 'form-message';
+      }
+    };
+
+    dateInput?.addEventListener('change', updateTimeConstraints);
+    timeInput?.addEventListener('change', updateTimeConstraints);
+    updateTimeConstraints();
+
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
 

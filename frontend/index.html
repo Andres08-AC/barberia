@@ -71,18 +71,62 @@
             <h2 data-i18n="sectionTitle1">Servicios de alto nivel</h2>
             <p data-i18n="sectionText1">Una experiencia cuidada hasta el último detalle.</p>
           </div>
-          <div class="cards">
-            <article class="card">
-              <h3 data-i18n="card1Title">Cortes personalizados</h3>
-              <p data-i18n="card1Text">Diseñamos cada corte con precisión para que realce tu esencia y personalidad.</p>
+          <div class="service-list-grid">
+            <article class="service-card">
+              <h3 data-i18n="serviceCategory1Title">Keratina & tratamientos</h3>
+              <ul>
+                <li data-i18n="serviceCategory1Item1">Keratina parcial</li>
+                <li data-i18n="serviceCategory1Item2">Keratina completa</li>
+                <li data-i18n="serviceCategory1Item3">Tratamiento Olaplex hidratante</li>
+                <li data-i18n="serviceCategory1Item4">Wella Professionals terapia de reparación</li>
+              </ul>
             </article>
-            <article class="card">
-              <h3 data-i18n="card2Title">Coloración profesional</h3>
-              <p data-i18n="card2Text">Reflejos, balayage y tonos sofisticados con una ejecución impecable.</p>
+            <article class="service-card">
+              <h3 data-i18n="serviceCategory2Title">Cortes</h3>
+              <ul>
+                <li data-i18n="serviceCategory2Item1">Shampoo / Blowdry / Peinado</li>
+                <li data-i18n="serviceCategory2Item2">Blow Dry</li>
+                <li data-i18n="serviceCategory2Item3">Flat Iron</li>
+                <li data-i18n="serviceCategory2Item4">Updo</li>
+                <li data-i18n="serviceCategory2Item5">Corte de hombre</li>
+                <li data-i18n="serviceCategory2Item6">Corte de hombre con diseño</li>
+                <li data-i18n="serviceCategory2Item7">Corte de mujer</li>
+                <li data-i18n="serviceCategory2Item8">Corte de niño</li>
+                <li data-i18n="serviceCategory2Item9">Corte de niña</li>
+              </ul>
             </article>
-            <article class="card">
-              <h3 data-i18n="card3Title">Tratamientos capilares</h3>
-              <p data-i18n="card3Text">Hidratación, reconstrucción y cuidado premium para un cabello brillante y saludable.</p>
+            <article class="service-card">
+              <h3 data-i18n="serviceCategory3Title">Paquetes Blow Dry</h3>
+              <ul>
+                <li data-i18n="serviceCategory3Item1">Blow Dry ... consigue 5 + 1 gratis</li>
+                <li data-i18n="serviceCategory3Item2">Blow Dry (cabello largo) ... consigue 5 + 1 gratis</li>
+                <li data-i18n="serviceCategory3Item3">Updo</li>
+              </ul>
+            </article>
+            <article class="service-card">
+              <h3 data-i18n="serviceCategory4Title">Maquillaje & peinado</h3>
+              <ul>
+                <li data-i18n="serviceCategory4Item1">Maquillaje</li>
+                <li data-i18n="serviceCategory4Item2">Peinados</li>
+                <li data-i18n="serviceCategory4Item3">Maquillaje y peinado para novia</li>
+              </ul>
+            </article>
+            <article class="service-card">
+              <h3 data-i18n="serviceCategory5Title">Color</h3>
+              <ul>
+                <li data-i18n="serviceCategory5Item1">Proceso simple</li>
+                <li data-i18n="serviceCategory5Item2">Color medio</li>
+                <li data-i18n="serviceCategory5Item3">Color completo</li>
+                <li data-i18n="serviceCategory5Item4">Corrección de color</li>
+                <li data-i18n="serviceCategory5Item5">Highlights en marco facial</li>
+                <li data-i18n="serviceCategory5Item6">Highlights parciales</li>
+                <li data-i18n="serviceCategory5Item7">Highlights completos</li>
+                <li data-i18n="serviceCategory5Item8">Balayage en marco facial</li>
+                <li data-i18n="serviceCategory5Item9">Balayage parcial</li>
+                <li data-i18n="serviceCategory5Item10">Balayage completo</li>
+                <li data-i18n="serviceCategory5Item11">Glaze</li>
+                <li data-i18n="serviceCategory5Item12">Glaze con color</li>
+              </ul>
             </article>
           </div>
         </div>
@@ -120,9 +164,14 @@
           <div class="schedule-card">
             <h3 data-i18n="scheduleTitle">Horario de atención</h3>
             <ul>
-              <li data-i18n="scheduleWeekdays">Lunes a Viernes: 9:00 - 20:00</li>
-              <li data-i18n="scheduleSaturday">Sábado: 9:00 - 14:00</li>
+              <li data-i18n="scheduleMonday">Lunes: 11:30 AM - 6:00 PM</li>
+              <li data-i18n="scheduleTuesday">Martes: 9:00 AM - 6:00 PM</li>
+              <li data-i18n="scheduleWednesday">Miércoles: 11:30 AM - 6:00 PM</li>
+              <li data-i18n="scheduleThursday">Jueves: 9:00 AM - 6:00 PM</li>
+              <li data-i18n="scheduleFriday">Viernes: 8:00 AM - 6:00 PM</li>
+              <li data-i18n="scheduleSaturday">Sábado: 8:00 AM - 6:00 PM</li>
               <li data-i18n="scheduleSunday">Domingo: Cerrado</li>
+              <li class="schedule-vip" data-i18n="scheduleVip">Citas especiales bajo agenda previa VIP.</li>
             </ul>
           </div>
           <form class="contact-form" id="reservation-form">
@@ -148,9 +197,36 @@
               <div class="select-wrap">
                 <select name="service" required>
                   <option value="" data-i18n="servicePlaceholder">Elige el servicio que deseas</option>
-                  <option value="Corte personalizado" data-i18n="serviceOpt1">Corte personalizado</option>
-                  <option value="Coloración profesional" data-i18n="serviceOpt2">Coloración profesional</option>
-                  <option value="Tratamiento capilar" data-i18n="serviceOpt3">Tratamiento capilar</option>
+                  <option value="Keratina parcial" data-i18n="serviceOpt1">Keratina parcial</option>
+                  <option value="Keratina completa" data-i18n="serviceOpt2">Keratina completa</option>
+                  <option value="Tratamiento Olaplex hidratante" data-i18n="serviceOpt3">Tratamiento Olaplex hidratante</option>
+                  <option value="Wella Professionals terapia de reparación" data-i18n="serviceOpt4">Wella Professionals terapia de reparación</option>
+                  <option value="Shampoo / Blowdry / Peinado" data-i18n="serviceOpt5">Shampoo / Blowdry / Peinado</option>
+                  <option value="Blow Dry" data-i18n="serviceOpt6">Blow Dry</option>
+                  <option value="Flat Iron" data-i18n="serviceOpt7">Flat Iron</option>
+                  <option value="Updo" data-i18n="serviceOpt8">Updo</option>
+                  <option value="Corte de hombre" data-i18n="serviceOpt9">Corte de hombre</option>
+                  <option value="Corte de hombre con diseño" data-i18n="serviceOpt10">Corte de hombre con diseño</option>
+                  <option value="Corte de mujer" data-i18n="serviceOpt11">Corte de mujer</option>
+                  <option value="Corte de niño" data-i18n="serviceOpt12">Corte de niño</option>
+                  <option value="Corte de niña" data-i18n="serviceOpt13">Corte de niña</option>
+                  <option value="Blow Dry ... consigue 5 + 1 gratis" data-i18n="serviceOpt14">Blow Dry ... consigue 5 + 1 gratis</option>
+                  <option value="Blow Dry (cabello largo) ... consigue 5 + 1 gratis" data-i18n="serviceOpt15">Blow Dry (cabello largo) ... consigue 5 + 1 gratis</option>
+                  <option value="Maquillaje" data-i18n="serviceOpt16">Maquillaje</option>
+                  <option value="Peinados" data-i18n="serviceOpt17">Peinados</option>
+                  <option value="Maquillaje y peinado para novia" data-i18n="serviceOpt18">Maquillaje y peinado para novia</option>
+                  <option value="Proceso simple" data-i18n="serviceOpt19">Proceso simple</option>
+                  <option value="Color medio" data-i18n="serviceOpt20">Color medio</option>
+                  <option value="Color completo" data-i18n="serviceOpt21">Color completo</option>
+                  <option value="Corrección de color" data-i18n="serviceOpt22">Corrección de color</option>
+                  <option value="Highlights en marco facial" data-i18n="serviceOpt23">Highlights en marco facial</option>
+                  <option value="Highlights parciales" data-i18n="serviceOpt24">Highlights parciales</option>
+                  <option value="Highlights completos" data-i18n="serviceOpt25">Highlights completos</option>
+                  <option value="Balayage en marco facial" data-i18n="serviceOpt26">Balayage en marco facial</option>
+                  <option value="Balayage parcial" data-i18n="serviceOpt27">Balayage parcial</option>
+                  <option value="Balayage completo" data-i18n="serviceOpt28">Balayage completo</option>
+                  <option value="Glaze" data-i18n="serviceOpt29">Glaze</option>
+                  <option value="Glaze con color" data-i18n="serviceOpt30">Glaze con color</option>
                 </select>
                 <span class="select-arrow">▼</span>
               </div>
