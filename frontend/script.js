@@ -414,6 +414,31 @@ document.addEventListener('DOMContentLoaded', () => {
       event.preventDefault();
 
       const formData = new FormData(form);
+      const name = formData.get('name')?.toString().trim() || 'Cliente';
+      const email = formData.get('email')?.toString().trim() || '';
+      const appointmentDate = formData.get('date')?.toString().trim() || '';
+      const appointmentTime = formData.get('time')?.toString().trim() || '';
+      const service = formData.get('service')?.toString().trim() || '';
+      const whatsappText = `Hola, quiero confirmar una cita en Styles ✂ Mary.\nNombre: ${name}\nCorreo: ${email}\nServicio: ${service}\nFecha: ${appointmentDate}\nHora: ${appointmentTime}`;
+      const whatsappLink = document.querySelector('.whatsapp-link');
+      const whatsappBaseUrl = whatsappLink ? whatsappLink.getAttribute('href') : 'https://wa.me/19143300160?text=Hola';
+      const whatsappUrl = new URL(whatsappBaseUrl);
+      whatsappUrl.searchParams.set('text', whatsappText);
+      const finalWhatsappUrl = whatsappUrl.toString();
+
+      try {
+        const hiddenLink = document.createElement('a');
+        hiddenLink.href = finalWhatsappUrl;
+        hiddenLink.target = '_blank';
+        hiddenLink.rel = 'noopener noreferrer';
+        hiddenLink.style.display = 'none';
+        document.body.appendChild(hiddenLink);
+        hiddenLink.click();
+        document.body.removeChild(hiddenLink);
+      } catch (error) {
+        window.location.href = finalWhatsappUrl;
+      }
+
       message.textContent = 'Guardando cita...';
       message.className = 'form-message';
 
@@ -428,24 +453,6 @@ document.addEventListener('DOMContentLoaded', () => {
         message.className = `form-message ${response.ok ? 'success' : 'error'}`;
         if (response.ok) {
           form.reset();
-          const name = formData.get('name')?.toString().trim() || 'Cliente';
-          const email = formData.get('email')?.toString().trim() || '';
-          const appointmentDate = formData.get('date')?.toString().trim() || '';
-          const appointmentTime = formData.get('time')?.toString().trim() || '';
-          const service = formData.get('service')?.toString().trim() || '';
-          const whatsappText = `Hola, quiero confirmar una cita en Styles ✂ Mary.\nNombre: ${name}\nCorreo: ${email}\nServicio: ${service}\nFecha: ${appointmentDate}\nHora: ${appointmentTime}`;
-          const whatsappLink = document.querySelector('.whatsapp-link');
-          const whatsappBaseUrl = whatsappLink ? whatsappLink.getAttribute('href').split('?')[0] : 'https://wa.me/19143300160';
-          const whatsappUrl = `${whatsappBaseUrl}?text=${encodeURIComponent(whatsappText)}`;
-
-          try {
-            const newWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-            if (!newWindow) {
-              window.location.href = whatsappUrl;
-            }
-          } catch (error) {
-            window.location.href = whatsappUrl;
-          }
         }
       } catch (error) {
         message.textContent = 'No se pudo guardar la cita. Intenta de nuevo.';
